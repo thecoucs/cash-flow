@@ -25,8 +25,9 @@
     }
   })
   const {movements} = toRefs(props);
+  const emit = defineEmits(["remove"])
   function remove(id){
-    console.log("remove", id)
+    emit("remove", id)
   }
 </script>
 <style scoped>

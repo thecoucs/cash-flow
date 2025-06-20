@@ -16,14 +16,16 @@
       style:"currency",
       currency:"COP"
     })
-    const {label, totalAmount, amount} = defineProps({
+    const {totalLabel,label, totalAmount, amount} = defineProps({
             totalLabel:String,      
             label: String,
             totalAmount: Number,
             amount: Number
             })
     const labelVisual = computed(()=>{
-        return label !== null ? label : totalLabel.value
+      console.log('label:',label)
+      console.log('amount:',label)
+        return label !== null ? label : totalLabel
     })        
     const amountVisual = computed(()=>{
         return amount !== null ? amount : totalAmount

@@ -44,8 +44,21 @@ import Movement from "./Movements/Movement.vue";
     const description = ref("")
     const movementType=ref("Ingreso")
 
+    const emit = defineEmits(["create"])
     function submit(){
         showModal.value = !showModal.value
+        emit("create",{
+          title: title.value,
+          description: description.value,
+          amount: movementType.value === "Ingreso" ? amount.value : -amount.value,
+          time: new Date(),
+          id: new Date()
+        })
+
+        title.value = ""
+        description.value = ""
+        amount.value = 0
+        movementType.value = "Ingreso"
     }
 </script>
 
