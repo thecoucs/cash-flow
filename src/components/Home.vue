@@ -14,7 +14,7 @@
                 graphic
             </template>
             <template #action>
-                action
+                <Action/>
             </template>
             </Resume>
         </template>
@@ -30,6 +30,7 @@
     import Layout from "./Layout.vue"
     import Header from "./Header.vue"
     import Resume from "./Resume/Index.vue"
+    import Action from "./Action.vue"
     import Movements from "./Movements/Index.vue"
     import {ref} from "vue"
 
@@ -37,15 +38,27 @@
   {
     id: 0,
     title: "Movimiento 1",
-    descripcion: "Nuevo movimiento",
+    description: "Nuevo movimiento",
     amount: 1000
   },
 
   {
     id: 1,
     title: "Movimiento 2",
-    descripcion: "Nuevo movimiento",
+    description: "Nuevo movimiento",
     amount: 1000
+  },
+  {
+    id: 2,
+    title: "Movimiento 3",
+    description: "Nuevo movimiento",
+    amount: -100
+  },
+  {
+    id: 3,
+    title: "Movimiento 4",
+    description: "Nuevo movimiento",
+    amount: -100
   }
 ])
 
