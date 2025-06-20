@@ -19,7 +19,9 @@
             </Resume>
         </template>
         <template #movements>
-            <Movements/>
+            <Movements
+                :movements="movements"
+            />
         </template>
     </Layout>
 </template>
@@ -28,6 +30,24 @@
     import Layout from "./Layout.vue"
     import Header from "./Header.vue"
     import Resume from "./Resume/Index.vue"
-    import Movements from "./Movements.vue"
+    import Movements from "./Movements/Index.vue"
+    import {ref} from "vue"
+
+    const movements = ref([
+  {
+    id: 0,
+    title: "Movimiento 1",
+    descripcion: "Nuevo movimiento",
+    amount: 1000
+  },
+
+  {
+    id: 1,
+    title: "Movimiento 2",
+    descripcion: "Nuevo movimiento",
+    amount: 1000
+  }
+])
+
 
 </script>
