@@ -2,7 +2,33 @@
     <button @click="showModal = true">Agregar Moviemiento</button>
     <Teleport to="#app">
         <Modal v-show="showModal" @close="showModal = false">
-            Va a ir el formulario
+            <form @submit.prevent="submit">
+                <div class="field">
+                    <label>Titulo</label>
+                    <input type="text" v-model="title"/>
+                </div>
+                <div class="field">
+                    <label>Monto</label>
+                    <input type="number" v-model="amount"/>
+                </div>
+                <div class="field">
+                    <label>Descripción</label>
+                    <textarea rows="4" v-model="description"></textarea>
+                </div>
+                <div class="field">
+                    <label class="radio-label">
+                        <input type="radio" v-model="movementType" value="Ingreso">
+                        <span>Ingreso</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" v-model="movementType" value="Gasto">
+                        <span>Gasto</span>
+                    </label>
+                </div>
+                <div class="action">
+                    <button>Agregar movimiento</button>
+                </div>
+            </form>
         </Modal>
     </Teleport>
 </template>
@@ -10,8 +36,17 @@
 <script setup>
     import {ref} from "vue"
     import Modal from "./Modal.vue";
+import Movement from "./Movements/Movement.vue";
     
     const showModal = ref(false)
+    const title = ref("")
+    const amount = ref(0)
+    const description = ref("")
+    const movementType=ref("Ingreso")
+
+    function submit(){
+        showModal.value = !showModal.value
+    }
 </script>
 
 <style scoped>
