@@ -52,7 +52,7 @@
         }).map(m => m.amount)
 
         return lastDays.map((m,i) =>{
-            const lastMovements = lastDays.slice(0,i)
+            const lastMovements = lastDays.slice(0,i+1)
             return lastMovements.reduce((suma, movement)=>{
                 return suma + movement
             },0)
@@ -73,10 +73,10 @@
         localStorage.setItem("movements", JSON.stringify(movements.value))
     }
 
-    // function select(el) {
-    //   console.log(el);
-    //   amount.value = el;
-    // }
+    function select(el) {
+      console.log(el);
+      amount.value = el;
+    }
 
     const totalAmount = computed(()=>{
         return movements.value.reduce((suma, m) =>{
